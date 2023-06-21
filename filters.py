@@ -11,7 +11,7 @@ class AttributeFilter:
     """A general superclass for filters on comparable attributes."""
 
     def __init__(self, op, value):
-        """Construct a new `AttributeFilter` from an binary predicate and a reference value."""
+        """Construct a new `AttributeFilter`."""
         self.op = op
         self.value = value
 
@@ -27,14 +27,13 @@ class AttributeFilter:
         interest from the supplied `CloseApproach`.
 
         :param approach: A `CloseApproach` on which to evaluate this filter.
-        :return: The value of an attribute of interest, comparable to `self.value` via `self.op`.
         """
         raise UnsupportedCriterionError
 
     def __repr__(self):
         """Use to return a formatted string that displays the class name."""
         return f"{self.__class__.__name__}"\
-                    f"(op=operator.{self.op.__name__}, value={self.value})"
+               f"(op=operator.{self.op.__name__}, value={self.value})"
 
 
 class DateFilter(AttributeFilter):
